@@ -2,7 +2,8 @@ require "twoch/version"
 
 class Twoch
   attr_accessor :url
-  attr_reader :body
+  attr_accessor :body
+  attr_accessor :lines
 
   class HTTPError < StandardError; end
 
@@ -16,5 +17,9 @@ class Twoch
         raise HTTPError, res.class.to_s
       end
     end
+  end
+
+  def split_body_by_line
+    self.lines = body.split("\n")
   end
 end
