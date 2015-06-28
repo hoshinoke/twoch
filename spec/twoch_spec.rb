@@ -5,7 +5,9 @@ describe Twoch do
     expect(Twoch::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '.new' do
+    it do
+      expect(Twoch.new).to be_a Twoch
+    end
   end
 end

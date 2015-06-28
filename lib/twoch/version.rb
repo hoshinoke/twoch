@@ -1,3 +1,3 @@
-module Twoch
-  VERSION = "0.1.0"
+class Twoch
+  VERSION = "0.0.0"
 end
