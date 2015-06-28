@@ -1,3 +1,4 @@
+require "twoch/line"
 require "twoch/version"
 
 class Twoch
