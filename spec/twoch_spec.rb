@@ -10,4 +10,15 @@ describe Twoch do
       expect(Twoch.new).to be_a Twoch
     end
   end
+
+  describe '#url=' do
+    let(:twoch) { Twoch.new }
+
+    context 'given a String' do
+      it 'sets the url to url' do
+        twoch.url = 'hogehoge url'
+        expect(twoch.url).to eq('hogehoge url')
+      end
+    end
+  end
 end
