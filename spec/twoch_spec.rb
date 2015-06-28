@@ -48,10 +48,10 @@ describe Twoch do
     end
   end
 
-  describe '#split_body_by_line' do
+  describe '#parse_lines' do
     it do
       twoch.body = "a\nb\n"
-      twoch.split_body_by_line
+      twoch.parse_lines
       expect(twoch.lines).to eq(%w(a b))
     end
   end

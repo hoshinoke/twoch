@@ -20,7 +20,7 @@ class Twoch
     end
   end
 
-  def split_body_by_line
+  def parse_lines
     self.lines = body.split("\n")
   end
 end
