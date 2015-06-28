@@ -21,6 +21,6 @@ class Twoch
   end
 
   def parse_lines
-    self.lines = body.split("\n")
+    self.lines = body.split("\n").map{|l| Line.new(l)}
   end
 end

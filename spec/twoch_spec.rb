@@ -53,6 +53,7 @@ describe Twoch do
       twoch.body = "a\nb\n"
       twoch.parse_lines
       expect(twoch.lines).to eq(%w(a b))
+      expect(twoch.lines).to all(be_a Twoch::Line)
     end
   end
 end
