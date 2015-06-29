@@ -84,4 +84,14 @@ describe Twoch do
       expect(twoch.url).to be :hogehoge
     end
   end
+
+  describe '#do_query' do
+    it do
+      result = double(:result, result: [:hogehoge])
+
+      expect(twoch.query).to receive(:query).with(image: true).and_return(result)
+      expect { twoch.do_query }.to \
+        change { twoch.query_result }.from([]).to([:hogehoge])
+    end
+  end
 end
