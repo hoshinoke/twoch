@@ -14,6 +14,8 @@ class Twoch
           && \
           (!hash[:to]        || hash[:to] >= res.res_index) \
           && \
+          (!hash[:image_or_youtube] || (res.image? || res.youtube?)) \
+          && \
           (!hash[:image]     || res.image?) \
           && \
           (!hash[:youtube]   || res.youtube?)
