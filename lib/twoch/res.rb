@@ -7,10 +7,10 @@ class Twoch
       @twoch = twoch
       @index = index
       @user, @meta, @time, body, @title = array
-      @body = Body.new(body)
+      @body = Body.new(body, res: self)
     end
 
-    attr_reader *%i(user meta time body title)
+    attr_reader *%i(user meta time body title twoch)
 
     def res_index
       @index
@@ -25,7 +25,7 @@ class Twoch
     end
 
     def add_ref(n)
-      twoch && twoch.add_ref(from: index, to: n)
+      twoch && twoch.add_ref(from: res_index, to: n)
     end
   end
 end
