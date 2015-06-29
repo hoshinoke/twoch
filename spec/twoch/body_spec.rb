@@ -7,6 +7,8 @@ describe Twoch::Body do
 
   it do
     expect(body).to eq('body')
+    expect(body.image?).to be_falsy
+    expect(body.youtube?).to be_falsy
   end
 
   describe 'jpg' do
@@ -15,6 +17,10 @@ describe Twoch::Body do
     it do
       expect(body_with_jpg).to \
         eq("<img width=240 src='http://example.com/1.jpg'><br>")
+    end
+
+    it do
+      expect(body_with_jpg.image?).to be true
     end
   end
 

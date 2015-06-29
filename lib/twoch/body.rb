@@ -12,8 +12,17 @@ class Twoch
 
     attr_reader *%i(res width)
 
+    def image?
+      @image
+    end
+
+    def youtube?
+      @youtube
+    end
+
     def embed_img!
       gsub!(%r{(\b|\s|h)ttp(s*)://\S+?\.(jpeg|jpg|jpg:large|png|gif|jpeg\?\S*|jpg\?\S*|png\?\S*|gif\?\S*)\s}) do |s|
+        @image = true
         "<img width=#{width} src='#{s.gsub(/(^t|\st|ht)tp/, 'http').strip}'><br>"
       end
     end
