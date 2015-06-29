@@ -69,4 +69,19 @@ describe Twoch do
       expect(twoch.reses.first.res_index).to be 1
     end
   end
+
+  describe '#add_ref' do
+  end
+
+  describe '#ref_table' do
+  end
+
+  describe '#set_url' do
+    it do
+      expect_any_instance_of(Twoch::DatUri).to \
+        receive(:convert).with(:fugafuga).and_return(:hogehoge)
+      twoch.set_url(:fugafuga)
+      expect(twoch.url).to be :hogehoge
+    end
+  end
 end
