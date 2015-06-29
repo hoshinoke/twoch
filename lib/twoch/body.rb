@@ -1,6 +1,6 @@
 class Twoch
   class Body < ::String
-    def initialize(arg = nil, res: nil, width: 240)
+    def initialize(arg = nil, res: nil, width: 80)
       super(arg.to_s)
       @res   = res
       @width = width
