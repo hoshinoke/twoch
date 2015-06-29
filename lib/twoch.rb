@@ -30,7 +30,7 @@ class Twoch
   end
 
   def parse_reses
-    self.reses = body.split("\n").map.with_index do |line, i|
+    self.reses = body.split("\n").map.with_index(1) do |line, i|
       Res.new(line, index: i, twoch: self)
     end
   end

@@ -54,6 +54,7 @@ describe Twoch do
       twoch.parse_reses
       expect(twoch.reses).to eq(%w(a b))
       expect(twoch.reses).to all(be_a Twoch::Res)
+      expect(twoch.reses.first.res_index).to be 1
     end
   end
 end
