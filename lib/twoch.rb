@@ -63,9 +63,15 @@ class Twoch
   end
 
   def rendered
-    template_path = File.join(File.dirname(__FILE__), '../template/main.haml')
     haml_string = File.read(template_path)
-    locals = { :@reses => query_result }
     HamlToHtml.new.haml_to_html(haml_string, locals)
+  end
+
+  def template_path
+    File.join(File.dirname(__FILE__), '../template/main.haml')
+  end
+
+  def locals
+    locals = { :@reses => query_result }
   end
 end
