@@ -20,6 +20,16 @@ class Twoch
   end
 
   def parse_lines
-    self.lines = body.split("\n").map{|l| Res.new(l)}
+    self.lines = body.split("\n").map.with_index do |line, i|
+      Res.new(line, index: i, twoch: self)
+    end
+  end
+
+  def add_ref(from:, to:)
+    ref_table[from].push(to).uniq!
+  end
+
+  def ref_table
+    @ref_table ||= Hash.new{|hash, key| hash[key] = []}
   end
 end
