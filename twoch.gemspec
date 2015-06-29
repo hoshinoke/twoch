@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.executables   = ["twoch"]
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "haml"
   spec.add_dependency "thor"
 
   spec.add_development_dependency "bundler", "~> 1.10"
