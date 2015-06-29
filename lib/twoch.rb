@@ -1,3 +1,4 @@
+require "nkf"
 require "twoch/body"
 require "twoch/dat_uri"
 require "twoch/haml_to_html"
@@ -22,7 +23,7 @@ class Twoch
     http = Net::HTTP.new(uri.host)
     http.start do |http|
       res = http.get(uri.path + '?' + uri.query.to_s)
-      @body = res.body
+      @body = NKF.nkf('-Lu, --utf8', res.body)
       if res.code.to_i >= 400
         raise HTTPError, res.class.to_s
       end
