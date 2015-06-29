@@ -42,5 +42,26 @@ describe Twoch::Query do
         expect(query.query(hash).result).to eq([res_2, res_3, res_4])
       end
     end
+
+    context 'given a hash' do
+      let(:res_1){ double(:res_1, image?: true, youtube?: true) }
+      let(:res_2){ double(:res_2, image?: nil,  youtube?: true) }
+      let(:res_3){ double(:res_3, image?: nil,  youtube?: nil ) }
+      let(:res_4){ double(:res_4, image?: nil,  youtube?: nil ) }
+      let(:res_5){ double(:res_5, image?: true, youtube?: nil ) }
+      let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
+
+      it '#result returns the result' do
+        hash = {image: true}
+        expect(twoch).to receive(:reses).and_return(reses)
+        expect(query.query(hash).result).to eq([res_1, res_5])
+      end
+
+      it '#result returns the result' do
+        hash = {youtube: true}
+        expect(twoch).to receive(:reses).and_return(reses)
+        expect(query.query(hash).result).to eq([res_1, res_2])
+      end
+    end
   end
 end
