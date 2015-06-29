@@ -1,5 +1,6 @@
 require "twoch/body"
 require "twoch/dat_uri"
+require "twoch/haml_to_html"
 require "twoch/query"
 require "twoch/res"
 require "twoch/version"
