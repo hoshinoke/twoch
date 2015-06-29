@@ -2,9 +2,7 @@ require "twoch/line"
 require "twoch/version"
 
 class Twoch
-  attr_accessor :url
-  attr_accessor :body
-  attr_accessor :lines
+  attr_accessor *%i(body lines url)
 
   class HTTPError < StandardError; end
 
