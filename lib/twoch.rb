@@ -13,9 +13,19 @@ class Twoch
   class HTTPError < StandardError; end
 
   def scan(url)
-    self.url = DatUri.new.convert(url)
+    set_url(url)
     get
     parse_reses
+    do_query
+    puts rendered
+  end
+
+  def query
+    @query ||= Query.new(self)
+  end
+
+  def query_result
+    @query_result ||= []
   end
 
   def get
@@ -42,5 +52,20 @@ class Twoch
 
   def ref_table
     @ref_table ||= Hash.new{|hash, key| hash[key] = []}
+  end
+
+  def set_url(url)
+    self.url = DatUri.new.convert(url)
+  end
+
+  def do_query
+    query_result.replace(query.query(image: true).result)
+  end
+
+  def rendered
+    template_path = File.join(File.dirname(__FILE__), '../template/main.haml')
+    haml_string = File.read(template_path)
+    locals = { :@reses => query_result }
+    HamlToHtml.new.haml_to_html(haml_string, locals)
   end
 end

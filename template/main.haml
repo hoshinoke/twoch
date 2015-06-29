@@ -1,0 +1,17 @@
+%style
+  img.response {width: 400px;}span.res_user {color: rgb(0, 128, 0);}span.res_user {color: rgb(0, 128, 0);}
+- @reses.each do |r|
+  = "#{r.title}"
+  %div{id: "res_article_#{r.res_index}", class: "res_content", number:"#{r.res_index}", style: "display: inline;"}
+    %p{class: "res_head"}
+      %span{class: "res_number"}
+        = "#{r.res_index}："
+      %span{class: "res_user"}
+        = "#{r.user}："
+      %span{class: "res_time"}
+        = "#{r.time}："
+    %div{class: "res_body_article", style: "font-size: #{rand>0.5 ? 24 : 16}px; color: rgb(#{rand>0.5 ? 120 : 0},#{rand>0.5 ? 120 : 0},#{rand>0.5 ? 120 : 0});"}
+      = "#{r.body}"
+      %br
+      %br
+      %br

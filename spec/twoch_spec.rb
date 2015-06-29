@@ -57,4 +57,16 @@ describe Twoch do
       expect(twoch.reses.first.res_index).to be 1
     end
   end
+
+  describe '#scan' do
+    it 'calls all methods' do
+      expect(twoch).to receive(:set_url).with('url')
+      expect(twoch).to receive(:get)
+      expect(twoch).to receive(:parse_reses)
+      expect(twoch).to receive(:do_query)
+      expect(twoch).to receive(:rendered).and_return('<html></html>')
+      expect(STDOUT).to receive(:puts).with('<html></html>')
+      twoch.scan('url')
+    end
+  end
 end
