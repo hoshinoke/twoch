@@ -103,4 +103,11 @@ describe Twoch do
       expect(twoch.rendered.gsub(/\n|\s/){''}).to eq("<h1>hai!</h1>")
     end
   end
+
+  describe '#rendered' do
+    it do
+      expected = File.join(File.dirname(__FILE__), '../template/main.haml').gsub(/spec\//){'lib/'}
+      expect(twoch.template_path).to eq(expected)
+    end
+  end
 end
