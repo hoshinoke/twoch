@@ -106,7 +106,8 @@ describe Twoch do
 
   describe '#template_path' do
     it do
-      expected = File.join(File.dirname(__FILE__), '../template/main.haml').gsub(/spec\//){'lib/'}
+      expected = File.join(File.dirname(__FILE__), '../template/main.haml')
+      expected.gsub!(/spec\//){'lib/'}
       expect(twoch.template_path).to eq(expected)
     end
   end
