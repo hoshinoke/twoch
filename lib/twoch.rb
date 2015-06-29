@@ -5,7 +5,6 @@ require "twoch/haml_to_html"
 require "twoch/query"
 require "twoch/res"
 require "twoch/version"
-require "pry"
 
 class Twoch
   attr_accessor *%i(body reses url)
