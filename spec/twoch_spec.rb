@@ -90,7 +90,7 @@ describe Twoch do
       result = double(:result, result: [:hogehoge])
 
       expect(twoch.query).to receive(:query).with(image: true).and_return(result)
-      expect { twoch.do_query }.to \
+      expect { twoch.do_query(image: true) }.to \
         change { twoch.query_result }.from([]).to([:hogehoge])
     end
   end
@@ -116,6 +116,18 @@ describe Twoch do
     it do
       expect(twoch).to receive(:query_result).and_return(:hogehoge)
       expect(twoch.locals).to eq(:@reses => :hogehoge)
+    end
+  end
+
+  describe '#scan' do
+    it 'calls all methods' do
+      expect(twoch).to receive(:set_url).with('url')
+      expect(twoch).to receive(:get)
+      expect(twoch).to receive(:parse_reses)
+      expect(twoch).to receive(:do_query).with(foo: :bar)
+      expect(twoch).to receive(:rendered).and_return('<html></html>')
+      expect(STDOUT).to receive(:puts).with('<html></html>')
+      twoch.scan('url', {foo: :bar})
     end
   end
 end

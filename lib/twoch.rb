@@ -12,11 +12,11 @@ class Twoch
 
   class HTTPError < StandardError; end
 
-  def scan(url)
+  def scan(url, options = nil)
     set_url(url)
     get
     parse_reses
-    do_query
+    do_query(options)
     puts rendered
   end
 
@@ -58,8 +58,8 @@ class Twoch
     self.url = DatUri.new.convert(url)
   end
 
-  def do_query
-    query_result.replace(query.query(image: true).result)
+  def do_query(options = {})
+    query_result.replace(query.query(options).result)
   end
 
   def rendered
