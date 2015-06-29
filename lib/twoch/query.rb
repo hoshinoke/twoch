@@ -9,7 +9,7 @@ class Twoch
 
     def query(hash = {})
       if twoch
-        if hash[:refs]
+        if hash[:referred]
           result = twoch.reses.select do |res|
             [twoch.ref_table.values].flatten.include?(res.res_index)
           end

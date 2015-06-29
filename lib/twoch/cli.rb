@@ -7,7 +7,7 @@ class Twoch
     option :image,            type: :boolean
     option :youtube,          type: :boolean
     option :image_or_youtube, type: :boolean
-    option :refs,             type: :boolean
+    option :referred,         type: :boolean
     def scan(url)
       Twoch.new.scan(url, options)
     end

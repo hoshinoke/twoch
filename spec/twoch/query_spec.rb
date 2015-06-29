@@ -79,7 +79,7 @@ describe Twoch::Query do
       let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
 
       it '#result returns the result' do
-        hash = {refs: true}
+        hash = {referred: true}
         ref_table = {
           100 => [1],
           200 => [1, 2],
