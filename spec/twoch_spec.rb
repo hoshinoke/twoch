@@ -94,4 +94,13 @@ describe Twoch do
         change { twoch.query_result }.from([]).to([:hogehoge])
     end
   end
+
+  describe '#rendered' do
+    it do
+      fixture_path = File.join(File.dirname(__FILE__), '../spec/template/main.haml')
+      expect(twoch).to receive(:template_path).and_return(fixture_path)
+      expect(twoch).to receive(:locals).and_return(:@foo => 'hai!')
+      expect(twoch.rendered.gsub(/\n|\s/){''}).to eq("<h1>hai!</h1>")
+    end
+  end
 end
