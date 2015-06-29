@@ -1,5 +1,5 @@
 class Twoch
-  class Line < ::String
+  class Res < ::String
     # レス。
     def initialize(*args)
       super

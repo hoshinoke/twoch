@@ -1,11 +1,11 @@
-describe Twoch::Line do
+describe Twoch::Res do
   it do
-    expect(Twoch::Line.new).to be_a String
+    expect(Twoch::Res.new).to be_a String
   end
 
-  let(:line) { Twoch::Line.new('user<>meta<>time<>body<>title') }
+  let(:line) { Twoch::Res.new('user<>meta<>time<>body<>title') }
   let(:line_with_b_tag) do
-    Twoch::Line.new('user<b><>meta<b><>time<b><>body<b><>title<b>')
+    Twoch::Res.new('user<b><>meta<b><>time<b><>body<b><>title<b>')
   end
 
   describe '#user' do
