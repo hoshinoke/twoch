@@ -72,6 +72,6 @@ class Twoch
   end
 
   def locals
-    locals = { :@reses => query_result }
+    { :@reses => query_result }
   end
 end

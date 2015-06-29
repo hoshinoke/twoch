@@ -104,10 +104,17 @@ describe Twoch do
     end
   end
 
-  describe '#rendered' do
+  describe '#template_path' do
     it do
       expected = File.join(File.dirname(__FILE__), '../template/main.haml').gsub(/spec\//){'lib/'}
       expect(twoch.template_path).to eq(expected)
+    end
+  end
+
+  describe '#locals' do
+    it do
+      expect(twoch).to receive(:query_result).and_return(:hogehoge)
+      expect(twoch.locals).to eq(:@reses => :hogehoge)
     end
   end
 end
