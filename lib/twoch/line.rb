@@ -1,23 +1,10 @@
 class Twoch
   class Line < ::String
-    def user
-      split('<>')[0]
+    def initialize(*args)
+      super
+      @user, @meta, @time, @body, @title = split('<>')
     end
 
-    def meta
-      split('<>')[1]
-    end
-
-    def time
-      split('<>')[2]
-    end
-
-    def body
-      split('<>')[3]
-    end
-
-    def title
-      split('<>')[4]
-    end
+    attr_reader *%i(user meta time body title)
   end
 end
