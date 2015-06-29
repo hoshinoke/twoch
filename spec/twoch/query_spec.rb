@@ -89,6 +89,18 @@ describe Twoch::Query do
         expect(twoch).to receive(:reses).and_return(reses)
         expect(query.query(hash).result).to eq([res_1, res_2, res_4])
       end
+
+      it '#result returns the result' do
+        hash = {refering_referred: true}
+        ref_table = {
+          100 => [1],
+          200 => [1, 2],
+          3   => [1],
+        }
+        expect(twoch).to receive(:ref_table).and_return(ref_table).at_least(1)
+        expect(twoch).to receive(:reses).and_return(reses)
+        expect(query.query(hash).result).to eq([res_1, res_2, res_3])
+      end
     end
   end
 end
