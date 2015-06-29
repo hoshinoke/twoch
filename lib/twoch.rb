@@ -4,7 +4,7 @@ require "twoch/res"
 require "twoch/version"
 
 class Twoch
-  attr_accessor *%i(body lines url)
+  attr_accessor *%i(body reses url)
 
   class HTTPError < StandardError; end
 
@@ -20,8 +20,8 @@ class Twoch
     end
   end
 
-  def parse_lines
-    self.lines = body.split("\n").map.with_index do |line, i|
+  def parse_reses
+    self.reses = body.split("\n").map.with_index do |line, i|
       Res.new(line, index: i, twoch: self)
     end
   end

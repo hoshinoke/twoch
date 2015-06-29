@@ -48,12 +48,12 @@ describe Twoch do
     end
   end
 
-  describe '#parse_lines' do
+  describe '#parse_reses' do
     it do
       twoch.body = "a\nb\n"
-      twoch.parse_lines
-      expect(twoch.lines).to eq(%w(a b))
-      expect(twoch.lines).to all(be_a Twoch::Res)
+      twoch.parse_reses
+      expect(twoch.reses).to eq(%w(a b))
+      expect(twoch.reses).to all(be_a Twoch::Res)
     end
   end
 end
