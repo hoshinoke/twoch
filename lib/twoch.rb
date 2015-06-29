@@ -1,3 +1,4 @@
+require "twoch/body"
 require "twoch/res"
 require "twoch/version"
 

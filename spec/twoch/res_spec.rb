@@ -31,6 +31,7 @@ describe Twoch::Res do
 
   describe '#body' do
     it { expect(line.body).to eq('body') }
+    it { expect(line.body).to be_a Twoch::Body }
     it 'removes <b>' do
       expect(line_with_b_tag.body).to eq('body')
     end
