@@ -8,4 +8,13 @@ describe Twoch::Body do
   it do
     expect(body).to eq('body')
   end
+
+  describe 'jpg' do
+    let(:body_with_jpg){ Twoch::Body.new(" ttp://example.com/1.jpg ") }
+
+    it do
+      expect(body_with_jpg).to \
+        eq("<img width=240 src='http://example.com/1.jpg'><br>")
+    end
+  end
 end
