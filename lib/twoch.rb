@@ -1,4 +1,5 @@
 require "twoch/body"
+require "twoch/dat_uri"
 require "twoch/query"
 require "twoch/res"
 require "twoch/version"
