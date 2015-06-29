@@ -1,5 +1,6 @@
 class Twoch
   class Line < ::String
+    # レス。
     def initialize(*args)
       super
       array = split('<>').map{|e| e.gsub(/<\/*b>/){''} }
