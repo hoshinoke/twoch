@@ -1,7 +1,8 @@
 class Twoch
   class Body < ::String
-    def initialize(arg, width: 240)
+    def initialize(arg = nil, res: nil, width: 240)
       super(arg.to_s)
+      @res   = res
       @width = width
 
       embed_img!
@@ -9,7 +10,7 @@ class Twoch
       replace_a_tag!
     end
 
-    attr_reader :width
+    attr_reader *%i(res width)
 
     def embed_img!
       gsub!(%r{(\b|\s|h)ttp(s*)://\S+?\.(jpeg|jpg|jpg:large|png|gif|jpeg\?\S*|jpg\?\S*|png\?\S*|gif\?\S*)\s}) do |s|
@@ -30,9 +31,14 @@ class Twoch
     def replace_a_tag!
       pattern = %r{<a href="\.\./test/.+/(\d+)" target="_blank">}
       gsub!(pattern) do
-        # (@refs ||= []) << Regexp.last_match[1].to_i
-        %(<a href="#res_article_#{Regexp.last_match[1]}">)
+        n = Regexp.last_match[1].to_i
+        add_ref(n)
+        %(<a href="#res_article_#{n}">)
       end
+    end
+
+    def add_ref(n)
+      res.add_ref(n)
     end
   end
 end
