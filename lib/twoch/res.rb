@@ -12,6 +12,10 @@ class Twoch
 
     attr_reader *%i(user meta time body title)
 
+    def res_index
+      @index
+    end
+
     def add_ref(n)
       twoch && twoch.add_ref(from: index, to: n)
     end

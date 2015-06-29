@@ -43,4 +43,9 @@ describe Twoch::Res do
       expect(line_with_b_tag.title).to eq('title')
     end
   end
+
+  describe '#res_index' do
+    let(:line) { Twoch::Res.new('', index: 2) }
+    it { expect(line.res_index).to be 2 }
+  end
 end
