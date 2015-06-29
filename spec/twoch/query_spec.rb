@@ -1,9 +1,6 @@
 describe Twoch::Query do
+  let(:query) { Twoch::Query.new }
   it do
-    expect(Twoch::Query.new).to be_a Twoch::Query
-  end
-
-  it do
-    expect(Twoch::Query.new.query).to be_a Twoch::Query
+    expect(query.query).to be query
   end
 end
