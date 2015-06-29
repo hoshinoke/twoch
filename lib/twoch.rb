@@ -13,7 +13,7 @@ class Twoch
   class HTTPError < StandardError; end
 
   def scan(url)
-    self.url = url
+    self.url = DatUri.new.convert(url)
     get
     parse_reses
   end
