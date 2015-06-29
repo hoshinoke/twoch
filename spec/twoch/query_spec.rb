@@ -25,6 +25,12 @@ describe Twoch::Query do
       let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
 
       it '#result returns the result' do
+        hash = {}
+        expect(twoch).to receive(:reses).and_return(reses)
+        expect(query.query(hash).result).to eq([res_1, res_2, res_3, res_4, res_5])
+      end
+
+      it '#result returns the result' do
         hash = {from: 2}
         expect(twoch).to receive(:reses).and_return(reses)
         expect(query.query(hash).result).to eq([res_2, res_3, res_4, res_5])
