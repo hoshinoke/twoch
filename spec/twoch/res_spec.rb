@@ -48,4 +48,18 @@ describe Twoch::Res do
     let(:res) { Twoch::Res.new('', index: 2) }
     it { expect(res.res_index).to be 2 }
   end
+
+  describe '#image?' do
+    it 'returns same object as body#image?' do
+      expect(res.body).to receive(:image?).and_return(:bool)
+      expect(res.image?).to be :bool
+    end
+  end
+
+  describe '#youtube?' do
+    it 'returns same object as body#youtube?' do
+      expect(res.body).to receive(:youtube?).and_return(:bool)
+      expect(res.youtube?).to be :bool
+    end
+  end
 end

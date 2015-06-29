@@ -16,6 +16,14 @@ class Twoch
       @index
     end
 
+    def image?
+      body.image?
+    end
+
+    def youtube?
+      body.youtube?
+    end
+
     def add_ref(n)
       twoch && twoch.add_ref(from: index, to: n)
     end
