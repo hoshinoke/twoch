@@ -38,7 +38,7 @@ class Twoch
     end
 
     def add_ref(n)
-      res.add_ref(n)
+      res && res.add_ref(n)
     end
   end
 end

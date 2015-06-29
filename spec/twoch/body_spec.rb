@@ -21,7 +21,7 @@ describe Twoch::Body do
   describe 'ref' do
     it do
       string = '<a href="../test/abcdef/123" target="_blank">'
-      body_with_a = Twoch::Body.new(string, res: double(:res, add_ref: nil))
+      body_with_a = Twoch::Body.new(string)
       expect(body_with_a).to \
         eq(%(<a href=\"#res_article_123\">))
     end
