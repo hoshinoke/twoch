@@ -29,6 +29,8 @@ class Twoch
         if hash[:refering] && hash[:referred]
           [twoch.ref_table.values].flatten.include?(res.res_index) || \
             twoch.ref_table.key?(res.res_index)
+        elsif hash[:refering]
+          twoch.ref_table.key?(res.res_index)
         elsif hash[:referred]
           [twoch.ref_table.values].flatten.include?(res.res_index)
         else
