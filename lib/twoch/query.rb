@@ -13,6 +13,8 @@ class Twoch
 
       result = filter_ng(result, hash)
 
+      result = filter_special_skip(result, hash)
+
       result = filter_refer(result, hash)
 
       result = filter_from_to(result, hash)
@@ -29,6 +31,14 @@ class Twoch
     def filter_ng(result, hash)
       result = result.select do |res|
         !res.ng?
+      end
+    end
+
+    def filter_special_skip(result, hash)
+      return result if !hash[:skip]
+      skips = hash[:skip].split(',').map(&:to_i)
+      result = result.select do |res|
+        !skips.include?(res.res_index)
       end
     end
 
