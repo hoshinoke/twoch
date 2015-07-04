@@ -104,6 +104,21 @@ describe Twoch do
     end
   end
 
+  describe '#add_more' do
+    it do
+      string = <<-'EOS'
+<div>
+hoge
+</div>
+
+<div class=hoge>
+      EOS
+      expect(twoch.add_more(string.chomp)).to eq('<div>
+hoge
+</div><a name="more"></a><div class=hoge>')
+    end
+  end
+
   describe '#template_path' do
     it do
       expected = File.join(File.dirname(__FILE__), '../template/main.haml')

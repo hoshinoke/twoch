@@ -63,7 +63,14 @@ class Twoch
 
   def rendered
     haml_string = File.read(template_path)
-    HamlToHtml.new.haml_to_html(haml_string, locals)
+    html_string = HamlToHtml.new.haml_to_html(haml_string, locals)
+    add_more(html_string)
+  end
+
+  def add_more(string)
+    replaced  = %(</div>\n\n<div)
+    replacing = %(</div><a name="more"></a><div)
+    string.sub(replaced, replacing)
   end
 
   def template_path
