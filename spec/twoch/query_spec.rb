@@ -64,7 +64,7 @@ describe Twoch::Query do
       end
 
       it '#result returns the result' do
-        hash = {image_or_youtube: true}
+        hash = {image: true, youtube: true}
         expect(twoch).to receive(:reses).and_return(reses)
         expect(query.query(hash).result).to eq([res_1, res_2, res_5])
       end

@@ -27,9 +27,13 @@ class Twoch
           (!hash[:from]      || hash[:from] <= res.res_index) \
           && \
           (!hash[:to]        || hash[:to] >= res.res_index) \
-          && \
-          (!hash[:image_or_youtube] || (res.image? || res.youtube?)) \
-          && \
+        end
+
+        result = result.select do |res|
+          if hash[:image] && hash[:youtube]
+            next(res.image? || res.youtube?)
+          end
+
           (!hash[:image]     || res.image?) \
           && \
           (!hash[:youtube]   || res.youtube?)
