@@ -4,6 +4,7 @@ require 'thor'
 class Twoch
   class Cli < ::Thor
     desc "scan URL", "scan the url"
+    option :skip,     type: :string
     option :referred, type: :boolean
     option :refering, type: :boolean
     option :from,     type: :numeric
