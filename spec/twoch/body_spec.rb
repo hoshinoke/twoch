@@ -29,6 +29,15 @@ describe Twoch::Body do
         eq("<img width=80 src='http://example.com/1.jpg'><br>")
     end
 
+    context 'given width:400' do
+      let(:body_with_jpg){ Twoch::Body.new(" ttp://example.com/1.jpg ", width: 400) }
+
+      it do
+        expect(body_with_jpg).to \
+          eq("<img width=400 src='http://example.com/1.jpg'><br>")
+      end
+    end
+
     it do
       expect(body_with_jpg.image?).to be true
     end
