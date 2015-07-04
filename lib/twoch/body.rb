@@ -12,6 +12,23 @@ class Twoch
 
     attr_reader *%i(res width)
 
+    def self.ng_list_path
+      Pathname.new('./ng_list')
+    end
+
+    def self.ng_list
+      return false if !ng_list_path.exist?
+      @ng_list ||= Regexp.union(ng_list_path.read.split("\n"))
+    end
+
+    def ng_list
+      self.class.ng_list
+    end
+
+    def ng?
+      !!(self =~ ng_list) if ng_list
+    end
+
     def image?
       @image
     end

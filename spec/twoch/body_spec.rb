@@ -9,6 +9,16 @@ describe Twoch::Body do
     expect(body).to eq('body')
     expect(body.image?).to be_falsy
     expect(body.youtube?).to be_falsy
+    expect(body.ng?).to be_falsy
+  end
+
+  describe '#ng?' do
+    let(:body_ng){ Twoch::Body.new("反日") }
+
+    it do
+      expect(body_ng).to receive(:ng_list).and_return(/反日|hogehoge/).at_least(1)
+      expect(body_ng.ng?).to be true
+    end
   end
 
   describe 'jpg' do
