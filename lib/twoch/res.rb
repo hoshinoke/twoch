@@ -16,6 +16,10 @@ class Twoch
       @index
     end
 
+    def ng?
+      body.ng?
+    end
+
     def image?
       body.image?
     end

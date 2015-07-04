@@ -11,6 +11,8 @@ class Twoch
       return self if !twoch
       result = twoch.reses
 
+      result = filter_ng(result, hash)
+
       result = filter_refer(result, hash)
 
       result = filter_from_to(result, hash)
@@ -23,6 +25,12 @@ class Twoch
     end
 
     private
+
+    def filter_ng(result, hash)
+      result = result.select do |res|
+        !res.ng?
+      end
+    end
 
     def filter_refer(result, hash)
       result.select do |res|

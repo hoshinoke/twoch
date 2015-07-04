@@ -17,11 +17,11 @@ describe Twoch::Query do
     end
 
     context 'given a hash' do
-      let(:res_1){ double(:res_1, res_index: 1) }
-      let(:res_2){ double(:res_2, res_index: 2) }
-      let(:res_3){ double(:res_3, res_index: 3) }
-      let(:res_4){ double(:res_4, res_index: 4) }
-      let(:res_5){ double(:res_5, res_index: 5) }
+      let(:res_1){ double(:res_1, res_index: 1, ng?: false) }
+      let(:res_2){ double(:res_2, res_index: 2, ng?: false) }
+      let(:res_3){ double(:res_3, res_index: 3, ng?: false) }
+      let(:res_4){ double(:res_4, res_index: 4, ng?: false) }
+      let(:res_5){ double(:res_5, res_index: 5, ng?: false) }
       let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
 
       it '#result returns the result' do
@@ -44,11 +44,11 @@ describe Twoch::Query do
     end
 
     context 'given a hash' do
-      let(:res_1){ double(:res_1, image?: true, youtube?: true) }
-      let(:res_2){ double(:res_2, image?: nil,  youtube?: true) }
-      let(:res_3){ double(:res_3, image?: nil,  youtube?: nil ) }
-      let(:res_4){ double(:res_4, image?: nil,  youtube?: nil ) }
-      let(:res_5){ double(:res_5, image?: true, youtube?: nil ) }
+      let(:res_1){ double(:res_1, image?: true, youtube?: true, ng?: false) }
+      let(:res_2){ double(:res_2, image?: nil,  youtube?: true, ng?: false) }
+      let(:res_3){ double(:res_3, image?: nil,  youtube?: nil,  ng?: false) }
+      let(:res_4){ double(:res_4, image?: nil,  youtube?: nil,  ng?: false) }
+      let(:res_5){ double(:res_5, image?: true, youtube?: nil,  ng?: false) }
       let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
 
       it '#result returns the result' do
@@ -71,11 +71,11 @@ describe Twoch::Query do
     end
 
     context 'given a hash' do
-      let(:res_1){ double(:res_1, res_index: 1) }
-      let(:res_2){ double(:res_2, res_index: 2) }
-      let(:res_3){ double(:res_3, res_index: 3) }
-      let(:res_4){ double(:res_4, res_index: 4) }
-      let(:res_5){ double(:res_5, res_index: 5) }
+      let(:res_1){ double(:res_1, res_index: 1, ng?: false) }
+      let(:res_2){ double(:res_2, res_index: 2, ng?: false) }
+      let(:res_3){ double(:res_3, res_index: 3, ng?: false) }
+      let(:res_4){ double(:res_4, res_index: 4, ng?: false) }
+      let(:res_5){ double(:res_5, res_index: 5, ng?: false) }
       let(:reses){ [res_1, res_2, res_3, res_4, res_5] }
 
       it '#result returns the result' do

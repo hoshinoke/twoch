@@ -49,6 +49,13 @@ describe Twoch::Res do
     it { expect(res.res_index).to be 2 }
   end
 
+  describe '#ng?' do
+    it 'returns same object as body#ng?' do
+      expect(res.body).to receive(:ng?).and_return(:bool)
+      expect(res.ng?).to be :bool
+    end
+  end
+
   describe '#image?' do
     it 'returns same object as body#image?' do
       expect(res.body).to receive(:image?).and_return(:bool)
