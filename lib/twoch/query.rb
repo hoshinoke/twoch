@@ -9,18 +9,17 @@ class Twoch
 
     def query(hash = {})
       if twoch
-        if hash[:refering_referred]
-          result = twoch.reses.select do |res|
+        result = twoch.reses
+
+        result = result.select do |res|
+          if hash[:refering_referred]
             [twoch.ref_table.values].flatten.include?(res.res_index) \
-            || \
-            twoch.ref_table.key?(res.res_index)
-          end
-        elsif hash[:referred]
-          result = twoch.reses.select do |res|
+              || twoch.ref_table.key?(res.res_index)
+          elsif hash[:referred]
             [twoch.ref_table.values].flatten.include?(res.res_index)
+          else
+            true
           end
-        else
-          result = twoch.reses
         end
 
         result = result.select do |res|
