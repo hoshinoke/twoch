@@ -26,7 +26,7 @@ class Twoch
 
     def filter_refer(result, hash)
       result.select do |res|
-        if hash[:refering_referred]
+        if hash[:refering] && hash[:referred]
           [twoch.ref_table.values].flatten.include?(res.res_index) || \
             twoch.ref_table.key?(res.res_index)
         elsif hash[:referred]

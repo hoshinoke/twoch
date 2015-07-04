@@ -91,7 +91,7 @@ describe Twoch::Query do
       end
 
       it '#result returns the result' do
-        hash = {refering_referred: true}
+        hash = {referred: true, refering: true}
         ref_table = {
           100 => [1],
           200 => [1, 2],
